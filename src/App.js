@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import LoaderPage from './LoaderPage';
 
 function App() {
-  const [setLoader, setStateLoader] = useState(true);
+  const [stateLoader, setStateLoader] = useState(true);
   const [mySearch, setMySearch] = useState("");
   const [myNutrition, setMyNutrition] = useState([]);
   //https://api.edamam.com/api/nutrition-details?app_id=ba1f1240&app_key=c81c9d20999e76a9ecb3440c5e910ec3
@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => setStateLoader(false), 3000);
     return() => clearTimeout(timer)
-  })
+  }, [])
   
   useEffect (() => {
     getData()
@@ -32,10 +32,10 @@ function App() {
       const data = await response.json();
       console.log(data);
       setMyNutrition(data);
-
+    }
   return (
     <div>
-      {setLoader && <LoaderPage/>}
+      {stateLoader && <LoaderPage/>}
       <div className="container">
         <h1>Nutrition Analysis</h1>
       </div>

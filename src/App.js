@@ -18,11 +18,6 @@ function App() {
   const MY_KEY= "c81c9d20999e76a9ecb3440c5e910ec3";
   const MY_URL= "https://api.edamam.com/api/nutrition-details";
 
-  /*useEffect(() => {
-    const timer = setTimeout(() => setStateLoader(false), 3000);
-    return() => clearTimeout(timer)
-  }, [])*/
-  
     const getData = async (ingr) => {
       setStateLoader(true);
       const response = await fetch(`${MY_URL}?app_id=${MY_ID}&app_key=${MY_KEY}`, {
@@ -37,12 +32,9 @@ function App() {
         setStateLoader(false);
         const data = await response.json();
         setMyNutrition(data);
-        console.log(data);
-        console.log(data.totalNutrients)
-        console.log(Object.values(data.totalNutrients))
     }
       else {
-        setStateLoader(false); // Сбрасываем состояние загрузки в false
+        setStateLoader(false); 
         Swal.fire({
           title: "The data input is incorrect",
           text: "Example: 1 kiwi, 1 banana",
@@ -82,7 +74,6 @@ function App() {
         </form>
       </div>
       <div className="container_2">
-        {/*{myNutrition && <p>{myNutrition.calories} kcal</p>}*/}
         {myNutrition && Object.values(myNutrition.totalNutrients)
             .map(({ label, quantity, unit}, index ) =>
               <Nutrition key={index}

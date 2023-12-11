@@ -1,5 +1,6 @@
 
 img {
+  opacity: 0.8;
   object-fit: cover;
   width: 100vw;
   height: 100vh;
@@ -20,17 +21,17 @@ h1 {
   background-color: transparent;
   color: #000000;
   font-size: 20px;
-  box-shadow: inset 0px 0px 0px 4px #ddd6e8;
+  border: 1px solid #000000;
   border-radius: 20px;
   }
 button {
   font-family: 'Montserrat', sans-serif;
   margin: 5px;
   padding: 15px;
-  background-color:#ddd6e8;
+  background-color: #FFAD84;
   color: #000000;
   font-size: 20px;
-  border: none; 
+  border: 1px solid #000000; 
   border-radius: 20px;
   }
 .container {
@@ -44,7 +45,7 @@ button {
 }
 p {
   font-family: 'Montserrat', sans-serif;
-  background-color: #ddd6e8;
+  background-color: #f9d1bd;
 }
 .container_loader {
   position: absolute;
@@ -129,4 +130,15 @@ p {
   100% {
     opacity: 0;
   }
+}
+@media all and (max-width: 500px) {
+  h1 {
+    font-size: 30px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
 }

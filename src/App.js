@@ -71,6 +71,7 @@ function App() {
         <form onSubmit={finalSearch}>
           <input className="search"
             placeholder="Search..."
+            spellcheck="false"
             onChange={myRecipeSearch}/>
             <button type="submit">Search</button>
         </form>

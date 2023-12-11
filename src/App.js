@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import LoaderPage from './LoaderPage';
 import Nutrition from './Nutrition';
 import image from './food.jpg';
+import Swal from 'sweetalert2';
 
 function App() {
   
@@ -42,7 +43,11 @@ function App() {
     }
       else {
         setStateLoader(false); // Сбрасываем состояние загрузки в false
-        alert('ingredients entered incorrectly');
+        Swal.fire({
+          title: "The data input is incorrect",
+          text: "Example: 1 kiwi, 1 banana",
+          background: "#f9d1bd",
+        });
     }
   }
   const myRecipeSearch = (e) => {
